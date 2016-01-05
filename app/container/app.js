@@ -15,8 +15,8 @@ class App extends Component {
 		return (
 			<div>
 				
-				<TitleBar showAdd={pathname!=="/addfilm"}/>
-				<section className="ui-container ui-center">
+				<TitleBar history={this.props.history} showAdd={pathname!=="/addfilm"}/>
+				<section className="pd-t-45">
 				   {
 				   	this.props.children
 				   }

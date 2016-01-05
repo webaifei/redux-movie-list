@@ -6,12 +6,16 @@ import { Link } from 'react-router'
  * 需要使用propType检测
  */
 export default class TitleBar extends Component {
-
+	goBack(){
+		var history = this.props.history;
+		history.goBack()
+	}
 	render(){
 		const { showAdd } = this.props;
 		return (
 			<div>
 				<header className="ui-header ui-header-positive ui-header-stable ui-border-b">
+					 <i className="ui-icon-return" onClick={this.goBack.bind(this)}></i>
 				    <h1>movies-list</h1>
 				    <Link to="/addfilm"><button className={"ui-btn"+(showAdd?" ":" ui-hidden")}>添加</button></Link>
 				</header>
@@ -25,3 +29,4 @@ export default class TitleBar extends Component {
 TitleBar.propTypes = {
 	showAdd: React.PropTypes.bool
 }
+

@@ -1,33 +1,40 @@
 import React, { Component } from "react"
+import { getDetailById } from '../actions/actions'
 import { connect } from 'react-redux'
 
 class FilmDetail extends Component{
 	constructor(props) {
 	    super(props);
-	    this.state = { 
-	    	title:'',
-	    	desc:'',
-	    	img:''
-
-	    };
+	    
 	}
 	
 	componentDidMount(){
 		//获取对应的数据
+		var id = this.props.params.id
+		var dispatch = this.props.dispatch
+		//dispatch the action 
+		dispatch( getDetailById(id) )
+
 	}
 	render(){
-		console.log( this.state )
-		const item = this.state;
+		console.log( this.props, 'film detail')
+		const { curFilm } = this.props;
 		return (
-			<div className="ui-panel">
-				<div className="ui-row">
+			<div className="">
+				<div className="ui-col ui-col-100">
 					<div className="ui-whitespace">
-						<h1>{item.title||'ncie'}</h1>
+						<h1>{curFilm.title}</h1>
 					</div>
 
-				</div>
-				<div className="ui-row">
 
+				</div>
+				<div className="ui-row ui-col ">
+					
+					<img className="ui-col" src={curFilm.img} alt=""/>
+				
+				</div>
+				<div className="">
+					<p className="ui-whitespace">{curFilm.desc}</p>
 				</div>
 			</div>
 			
@@ -36,5 +43,9 @@ class FilmDetail extends Component{
 
 }
 
-
-export default connect()(FilmDetail)
+function select ( state ){
+	return {
+		curFilm: state.curFilm
+	}
+}
+export default connect(select)(FilmDetail)

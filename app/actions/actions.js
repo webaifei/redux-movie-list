@@ -3,6 +3,7 @@
  */
 
 export const ADD_FILM = 'ADD_FILM'
+export const GET_DETAIL = 'GET_DETAIL'
 
 /**
  * 添加电影动作
@@ -21,3 +22,9 @@ export function addFilm( data ){
 	}
 }
 
+export function getDetailById( id ){
+	return {
+		type:GET_DETAIL,
+		id: id
+	}
+}

@@ -16,7 +16,7 @@ class FormAdd extends Component {
 			imgInput = this.refs.img;
 		//校验数据合法性
 		var data = {},
-			imgReg = /\.(jpg|png|gif)$/,
+			imgReg = /\.(jpe?g|png|gif)$/,
 			title = titleInput.value.trim(),
 			desc = descInput.value.trim(),
 			img = imgInput.value.trim();
@@ -41,7 +41,7 @@ class FormAdd extends Component {
 	render (){
 		
 		return (
-			<div className="ui-form ui-border-t pd-t-45">
+			<div className="ui-form ui-border-t">
 			    <form onSubmit={this.onSubmit.bind(this)}>
 			        <div className="ui-form-item ui-border-b">
 			            <label >
@@ -60,7 +60,7 @@ class FormAdd extends Component {
 			            <label >
 			                海报地址
 			            </label>
-			            <input type="text" ref='img' placeholder="输入电影地址"/>
+			            <input type="text" ref='img' placeholder="输入电影海报地址"/>
 			           
 			        </div>
 			        <div className="ui-footer ui-footer-stable ui-btn-group ui-border-t">
